@@ -1,0 +1,29 @@
+
+<div class="create-container">
+    <div class="authors-content">
+      <form class="form-container" (submit)="create()">
+        <div class="form-line">Restaurant Name: <input type="text" name="name" required minlength="3" #name='ngModel' [(ngModel)]="createRestaurant.name" required>
+          <div *ngIf="name.invalid">
+            <div *ngIf="name.errors.required">
+                Author name required.
+            </div>
+            <div *ngIf="name.errors.minlength">
+                Author name must be at least three characters long.
+            </div>
+          </div>
+        </div>
+        <p>Cuisine:</p>
+        <div class="form-line"> <input type="text" name="cuisine" required minlength="3" #quotes='ngModel' [(ngModel)]="createRestaurant.cuisine" required>
+          
+        </div>
+        <input class="btn-create" type="submit" value="Create Restaurant"/>
+      </form>
+      <button (click)="handleCancelClick()">Cancel</button>
+    </div>
+    <div *ngFor="let key of error">
+        <h1>{{key}}</h1>
+    </div>
+
+  </div>
+  
+  

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button [routerLink]="['/restaurants/new']">Create Restaurant </button>
+<table class="table" *ngFor= "let restaurant of restaurants">
+    <thead>
+        <tr>
+            <th>Restaurant</th>
+            <th>Cuisine</th>
+            <th>Actions Available</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> {{restaurant.name}} </td>
+            <td> {{restaurant.cuisine}} </td>
+            <td> <button [routerLink]="['/restaurants/reviews/'+author._id]">Read Reviews</button>
+                <button [routerLink]="['/restaurants/update/'+author._id]">Update Restaurant</button>
+                <button [routerLink]="['/']" (click)="delete(id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
